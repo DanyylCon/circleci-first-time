@@ -13,9 +13,16 @@ jobs:
       - checkout
       # install dependencies in both apps
       - run:
-          name: install dependencies
-          command: npm install
+          name: install frontend deps
+          command: npm run frontend:install
+      - run:
+          name: install backend deps
+          command: npm run backend:install 
       # build the serve and ui
       - run:
-          name: build both
-          command: npm run build
+          name: buildend frontend
+          command: npm run frontend:build
+      - run:
+          name: buildend back
+          command: npm run backend:build
+      
